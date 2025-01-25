@@ -19,10 +19,12 @@ export const Header = () => {
   return (
     <StyledHeader>
       <Navbar links={navbarLinks} />
+
       <h1>
         <Button href="/Home" icon={<img src={Logo} alt="Mock.Shop" />} />
       </h1>
-      <div>
+
+      <div className="icons">
         <Button icon={<GoSearch />} />
         <Button icon={<IoPersonOutline />} />
         <Button icon={<FiShoppingBag />} />
