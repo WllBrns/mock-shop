@@ -34,7 +34,7 @@ export const StyledHeader = styled.header`
     gap: 1rem;
     margin-right: 3.125rem;
   }
-  icons > bottom {
+  .icons > * {
     width: 1.25rem;
     height: 1.25rem;
   }
