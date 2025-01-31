@@ -1,8 +1,12 @@
 import { Home } from './pages/home/home.jsx';
 import { Header } from './components/header/Header.jsx';
+import { Collections } from './pages/collections/collections.jsx';
+import { Men } from './pages/collections/men/men.jsx';
+import { Women } from './pages/collections/women/women.jsx';
+import { Unisex } from './pages/collections/unisex/unisex.jsx';
 import './App.css';
 
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { Routes, Route, BrowserRouter } from 'react-router';
 
 function App() {
   return (
@@ -10,7 +14,14 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
+        <Route path="home" element={<Home />} />
+        <Route path='collections' >
+          <Route index element={<Collections />} />
+          <Route path='men' element={<Men />} />
+          <Route path='women' element={<Women />} />
+          <Route path='unisex' element={<Unisex />} />
+        </Route>
+        {/* <Route path='news' element={<News />} /> */}
       </Routes>
     </BrowserRouter>
   );
