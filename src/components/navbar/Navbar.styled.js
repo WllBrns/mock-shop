@@ -14,11 +14,7 @@ flex:1;
     display: inline-flex;
     padding: 0;
     margin: 0;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+    padding-left: 3.125rem;
     gap: 1.5rem;
   }
 

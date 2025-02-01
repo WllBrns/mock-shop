@@ -5,12 +5,8 @@ export const StyledHeader = styled.header`
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-
-  padding-top: 36px;
-  padding-bottom: 28px;
+  padding: 2.25rem 0rem 1.75rem 0rem;
   margin: 0px;
-  grid-template-areas: "navigation heading icons";
-  grid-template-columns: 1fr auto 1fr;
   column-gap: 2rem;
   align-items: center;
 
@@ -31,8 +27,8 @@ export const StyledHeader = styled.header`
     flex: 1;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
-    margin-right: 3.125rem;
+    gap: .625rem;
+    padding-right: 3.125rem;
   }
   .icons > * {
     width: 1.25rem;
