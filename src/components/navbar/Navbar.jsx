@@ -1,6 +1,5 @@
 import { StyledNavbar } from "./Navbar.styled.js";
 
-import { StyledButton } from "../button/Button.styled";
 import { NavLink } from "react-router";
 
 const navbarLinks = [
@@ -14,9 +13,13 @@ const navbarLinks = [
 export const Navbar = () => {
   const links = navbarLinks.map((link) => (
     <li key={link.href}>
-      <StyledButton as={NavLink} to={link.href}>
+      <NavLink
+        to={link.href}
+        className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+        end={link.text === "Collections"}
+      >
         {link.text}
-      </StyledButton>
+      </NavLink>
     </li>
   ));
 
