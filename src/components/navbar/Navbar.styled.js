@@ -28,22 +28,28 @@ flex:1;
     height: max-content;
   }
 
-  a {
+  .nav-link {
     border-width: 0px;
-    border-color: black;
+    border-color:rgba(0, 0, 0, 0);
     border-style: solid;
-
-  }
-
-  a.active {
     border-bottom-width: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
   }
 
-  a:hover {
+  .nav-link.active {
     border-bottom-width: 1px;
+    border-color:black;
   }
 
-  a.active:hover {
+  .nav-link:hover {
+    border-bottom-width: 1px;
+    border-color:black;
+  }
+
+  .nav-link.active:hover {
     border-bottom-width: 2px;
+    border-color:black;
   }
 `;
