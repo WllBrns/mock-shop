@@ -34,7 +34,8 @@ export const StyledHeader = styled.header`
     gap: .625rem;
     padding-right: 3.125rem;
   }
-  .icons > * {
+
+  .icons svg {
     width: 1.25rem;
     height: 1.25rem;
   }
