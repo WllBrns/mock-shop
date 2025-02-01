@@ -17,6 +17,10 @@ export const StyledHeader = styled.header`
     max-width: fit-content;
   }
 
+  .logo {
+    padding: .4688rem;
+  }
+
   img {
     height: auto;
     width: 120px;

@@ -6,15 +6,16 @@ import Logo from "../../newer.gif";
 import { GoSearch } from "react-icons/go";
 import { IoPersonOutline } from "react-icons/io5";
 import { FiShoppingBag } from "react-icons/fi";
+import { Link } from "react-router";
 
 export const Header = () => {
   return (
     <StyledHeader>
       <Navbar />
 
-      <h1>
-        <Button href="/Home" icon={<img src={Logo} alt="Mock.Shop" />} />
-      </h1>
+      <Link className="logo" to="/Home">
+        <img src={Logo} alt="Mock.Shop" />
+      </Link>
 
       <div className="icons">
         <Button icon={<GoSearch />} />
