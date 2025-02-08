@@ -1,26 +1,26 @@
 import React from "react";
-import { StyledHeroBanner } from "./HeroBanner.styled";
+import {
+  LeftStyledHeroBanner,
+  CenterStyledHeroBanner,
+} from "./HeroBanner.styled";
 import { Button } from "../button/Button";
 import { Link } from "react-router";
 
-export const HeroBanner = () => {
+export const HeroBannerVariant = {
+  left: LeftStyledHeroBanner,
+  center: CenterStyledHeroBanner,
+};
+
+export const HeroBanner = ({ variant, img, alt, h2, p }) => {
+  const Tag = variant;
   return (
     <div>
-      <StyledHeroBanner>
-        <img
-          src="https://demostore.mock.shop/cdn/shop/files/DALL_E_2023-02-03_11.19.22_-_basketball_gym_5_1.png?v=1675445658&width=1500"
-          alt="Hero Banner"
-        />
+      <Tag>
+        <img src={img} alt={alt} />
         <div className="text">
-          <h2>The Peak Collection</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-            varius faucibus consequat. Nunc eleifend eget purus in viverra.
-            Mauris congue ullamcorper nisi ac luctus. Vivamus eget posuere
-            justo. Duis leo lorem, ultrices eu placerat sit amet, ultricies ut
-            enim. Sed nec fringilla neque, non ornare odio. Integer urna eros,
-            fermentum ac nibh ut, pretium tincidunt ligula.
-          </p>
+          <h2>{h2}</h2>
+          <p>{p}</p>
+
           <Button
             className="link"
             href={"/collections"}
@@ -28,7 +28,7 @@ export const HeroBanner = () => {
             as={Link}
           ></Button>
         </div>
-      </StyledHeroBanner>
+      </Tag>
     </div>
   );
 };
