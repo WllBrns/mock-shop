@@ -1,12 +1,10 @@
+import React from "react";
 import { StyledButton } from "./Button.styled.js";
-import { Link } from "react-router";
 
-export const Button = ({ onClick, href, icon }) => {
-  return href ? (
-    <StyledButton as={Link} to={href}>
+export const Button = ({ onClick, icon, as }) => {
+  return (
+    <StyledButton as={as} onClick={onClick}>
       {icon}
     </StyledButton>
-  ) : (
-    <StyledButton onClick={onClick}>{icon}</StyledButton>
   );
 };
