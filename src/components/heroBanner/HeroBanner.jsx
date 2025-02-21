@@ -14,7 +14,7 @@ export const HeroBannerVariant = {
 export const HeroBanner = ({ variant, img, alt, h2, p }) => {
   const Tag = variant;
   return (
-    <div>
+    <div className="container">
       <Tag>
         <img src={img} alt={alt} />
         <div className="text">
