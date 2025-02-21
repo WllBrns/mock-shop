@@ -5,7 +5,7 @@ import {
 
 export const Home = () => {
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <h1>Home</h1>
       <HeroBanner
         variant={HeroBannerVariant.left}

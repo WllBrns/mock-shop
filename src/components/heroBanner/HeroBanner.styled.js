@@ -6,7 +6,6 @@ export const LeftStyledHeroBanner = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
-    overflow: hidden;
 
     img {
       height: 100%;
@@ -40,7 +39,7 @@ export const CenterStyledHeroBanner = styled(LeftStyledHeroBanner)`
     left: 0;  
     right: 0;
     text-align: center;
-    width: 55%;
+    width: 70%;
   };
 
   ${StyledButton} {
