@@ -3,9 +3,9 @@ import { StyledNavbar } from "./Navbar.styled.js";
 import { NavLink } from "react-router";
 
 const navbarLinks = [
-  { href: "collections/men", text: "Men" },
-  { href: "collections/women", text: "Women" },
-  { href: "collections/unisex", text: "Unisex" },
+  { href: `collections/${"men"}`, text: "Men" },
+  { href: `collections/${"women"}`, text: "Women" },
+  { href: `collections/${"unisex"}`, text: "Unisex" },
   { href: "collections", text: "Collections" },
   { href: "blogs/news", text: "News" },
 ];
