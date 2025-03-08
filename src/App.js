@@ -1,5 +1,6 @@
 import { Home } from './pages/home/home.jsx';
 import { Header } from './components/header/Header.jsx';
+import { Footer } from './components/footer/Footer.jsx';
 import { Collections } from './pages/collections/collections.jsx';
 import { Men } from './pages/collections/men/men.jsx';
 import { Women } from './pages/collections/women/women.jsx';
@@ -23,6 +24,7 @@ function App() {
         </Route>
         {/* <Route path='news' element={<News />} /> */}
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
