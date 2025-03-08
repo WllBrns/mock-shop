@@ -1,13 +1,13 @@
 import {
   HeroBanner,
   HeroBannerVariant,
-} from "../../components/heroBanner/HeroBanner";
-import { ProductGrid } from "../../components/productGrid/ProductGrid";
+} from "../../components/heroBanner/HeroBanner.jsx";
+import { ProductGrid } from "../../components/productGrid/ProductGrid.jsx";
 import { StyledHome } from "./Home.styled.js";
 
 export const Home = () => {
   return (
-    <StyledHome className="container" classNamestyle={{ overflow: "hidden" }}>
+    <StyledHome classNamestyle={{ overflow: "hidden" }}>
       <HeroBanner
         variant={HeroBannerVariant.left}
         img={
@@ -20,7 +20,7 @@ export const Home = () => {
         }
       />
 
-      <div className="new-arrivals">
+      <div className="new-arrivals container">
         <p>New Arrivals</p>
         <h2>Spring '23</h2>
         <ProductGrid products={[[], [], [], []]} />
