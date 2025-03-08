@@ -1,12 +1,10 @@
+import React from "react";
 import { StyledButton } from "./Button.styled.js";
-import { Link } from "react-router";
 
-export const Button = ({ onClick, href, icon }) => {
-  return href ? (
-    <StyledButton as={Link} to={href}>
-      {icon}
+export const Button = ({ onClick, icon, as, href }) => {
+  return (
+    <StyledButton as={as} onClick={onClick} to={href}>
+      <div className="insideBorder">{icon}</div>
     </StyledButton>
-  ) : (
-    <StyledButton onClick={onClick}>{icon}</StyledButton>
   );
 };
