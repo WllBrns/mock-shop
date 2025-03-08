@@ -1,6 +1,6 @@
-import { Home } from './pages/home/home.jsx';
+import { Home } from './pages/home/Home.jsx';
 import { Header } from './components/header/Header.jsx';
-import { ProductPage } from './pages/collections/productPage/productPage.jsx';
+import { ProductPage } from './pages/collections/productPage/ProductPage.jsx';
 import './App.css';
 
 import { Routes, Route, BrowserRouter } from 'react-router';
