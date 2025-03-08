@@ -4,9 +4,18 @@ export const StyledProductCard = styled.div`
   
   width: (fill)21.25rem;
   height: (hug)26rem;
-  background-color: gray;
   padding: .75rem .75rem 2rem .75rem;
   position: relative;
+  
+  img {
+    transition: transform .4s ease-in-out;
+  }
+
+  &:hover{
+    img{ 
+      transform: scale(1.03);
+    }
+}
 
   img {
     width: (fill)19.75rem;
@@ -15,7 +24,6 @@ export const StyledProductCard = styled.div`
 
   .text {
     padding: .625rem 1rem 0rem 1rem;
-    /* margin: 12px 0px 20px 0px; */
   }
 
   .text * {
