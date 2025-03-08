@@ -41,7 +41,6 @@ export const LeftStyledHeroBanner = styled.div`
       border-color: rgba(0, 0, 0, 0);
       border-width: 1px;
       padding: .75rem 1.5rem;
-      gap: .625rem;
       border-radius: 2px;
     }
     
