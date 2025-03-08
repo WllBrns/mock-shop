@@ -14,7 +14,6 @@ export const LeftStyledHeroBanner = styled.div`
     p {
       margin-top: .75rem;
       margin-bottom: 1.25rem;
-      gap: .625rem;
     }
 
     img {
