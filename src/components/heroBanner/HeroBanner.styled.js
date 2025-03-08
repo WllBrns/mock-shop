@@ -7,6 +7,16 @@ export const LeftStyledHeroBanner = styled.div`
     display: flex;
     justify-content: center;
 
+    h2 {
+      margin: 0px;
+    }
+
+    p {
+      margin-top: .75rem;
+      margin-bottom: 1.25rem;
+      gap: .625rem;
+    }
+
     img {
       height: 100%;
     }
@@ -23,13 +33,22 @@ export const LeftStyledHeroBanner = styled.div`
       border: solid;
       border-color: white;
       border-width: 1px;
-      padding: .75rem 1.5rem;
-      gap: .625rem;
       border-radius: 3px;
     }
 
+    .insideBorder{
+      border: solid;
+      border-color: rgba(0, 0, 0, 0);
+      border-width: 1px;
+      padding: .75rem 1.5rem;
+      gap: .625rem;
+      border-radius: 2px;
+    }
+    
     ${StyledButton}:hover {
-      border-width: 2px;
+      .insideBorder {
+        border-color: white;
+      }
     }
 `;
 
@@ -48,5 +67,11 @@ export const CenterStyledHeroBanner = styled(LeftStyledHeroBanner)`
 
   ${StyledButton} {
     border-color: black;
+  }
+
+  ${StyledButton}:hover {
+    .insideBorder {
+      border-color: black;
+    }
   }
 `;
