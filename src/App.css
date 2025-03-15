@@ -17,10 +17,6 @@ h2 {
   font-size: 3rem;
 }
 
-h1::first-letter {
-  text-transform: capitalize;
-}
-
 .container {
   max-width: 1100px;
   margin: 0 auto;
