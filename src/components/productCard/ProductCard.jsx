@@ -11,8 +11,10 @@ export const ProductCard = ({ product }) => {
         src="https://zpacks.com/cdn/shop/files/Zpacks-TrailCoolMerinoWoolT-Shirt-01_2048x.jpg?v=1686743695"
         alt=""
       />
-      <h3>shirt</h3>
-      <p>$39.99</p>
+      <div className="text">
+        <h3>Shirt</h3>
+        <p>$39.99 AUD</p>
+      </div>
     </StyledProductCard>
   );
 };
