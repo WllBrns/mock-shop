@@ -12,18 +12,26 @@ export const Footer = () => {
   return (
     <StyledFooter>
       <div className="container">
-        <h2>Stay in the know</h2>
-        <input type="email" placeholder="Email" />
-        <p>Follow us on social media</p>
-        <p className="icons">
-          <FaTwitter />
-          <FaFacebookSquare />
-          <FaPinterest />
-          <FaInstagram />
-          <FaTiktok />
-          <FaTumblr />
-          <FaYoutube />
-        </p>
+        <div className="socials">
+          <h2>Stay in the know</h2>
+          <input type="email" placeholder="Email" />
+          <p>Follow us on social media</p>
+          <p className="icons">
+            <FaTwitter />
+            <FaFacebookSquare />
+            <FaPinterest />
+            <FaInstagram />
+            <FaTiktok />
+            <FaTumblr />
+            <FaYoutube />
+          </p>
+        </div>
+        <div className="currency">
+          <select name="currency" id="currency">
+            <option value="us">United States (USD $)</option>
+            <option value="ca">Canada (CAD $)</option>
+          </select>
+        </div>
       </div>
     </StyledFooter>
   );
