@@ -7,8 +7,8 @@ export const StyledProductCard = styled.div`
   position: relative;
   
   display: flex;
-  align-items: center;
   flex-direction: column;
+
 
   img {
     transition: transform .4s ease-in-out;
@@ -21,7 +21,9 @@ export const StyledProductCard = styled.div`
 }
 
   img {
-    height: 19.75rem;
+    height: auto;
+    width:100%;
+    object-fit: contain;
   }
 
   .text {
