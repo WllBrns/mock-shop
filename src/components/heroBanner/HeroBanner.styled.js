@@ -27,10 +27,6 @@ export const LeftStyledHeroBanner = styled.div`
       gap: .625rem;
       border-radius: 3px;
     }
-
-    ${StyledButton}:hover {
-      border-width: 2px;
-    }
 `;
 
 export const CenterStyledHeroBanner = styled(LeftStyledHeroBanner)`

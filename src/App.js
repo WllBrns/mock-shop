@@ -1,10 +1,7 @@
-import { Home } from './pages/home/home.jsx';
+import { Home } from './pages/home/Home.jsx';
 import { Header } from './components/header/Header.jsx';
 import { Footer } from './components/footer/Footer.jsx';
-import { Collections } from './pages/collections/collections.jsx';
-import { Men } from './pages/collections/men/men.jsx';
-import { Women } from './pages/collections/women/women.jsx';
-import { Unisex } from './pages/collections/unisex/unisex.jsx';
+import { ProductPage } from './pages/collections/productPage/ProductPage.jsx';
 import './App.css';
 
 import { Routes, Route, BrowserRouter } from 'react-router';
@@ -16,11 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Home />} />
-        <Route path='collections' >
-          <Route index element={<Collections />} />
-          <Route path='men' element={<Men />} />
-          <Route path='women' element={<Women />} />
-          <Route path='unisex' element={<Unisex />} />
+        <Route path='collections' element={<ProductPage />}>
+          <Route path=':collectionName' element={<ProductPage />} />
         </Route>
         {/* <Route path='news' element={<News />} /> */}
       </Routes>
