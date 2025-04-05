@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 export const StyledProductCard = styled.div`
   
-  width: (fill)21.25rem;
-  height: (hug)26rem;
+
   padding: .75rem .75rem 2rem .75rem;
   position: relative;
   
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   img {
     transition: transform .4s ease-in-out;
   }
@@ -18,7 +21,6 @@ export const StyledProductCard = styled.div`
 }
 
   img {
-    width: (fill)19.75rem;
     height: 19.75rem;
   }
 

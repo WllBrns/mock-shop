@@ -5,4 +5,8 @@ export const StyledProductGrid = styled.div`
     grid-template-columns: auto auto auto;
     gap: 2.5rem;
     overflow: auto;
+
+    @media (max-width: 1100px) {
+      grid-template-columns: auto auto;
+    }
 `;
