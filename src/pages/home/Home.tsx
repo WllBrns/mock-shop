@@ -8,19 +8,22 @@ import {
   ProductCard,
   ProductCardProps,
 } from "../../components/productCard/ProductCard";
+import { ProductQuery } from "../../queries/productQuery";
 
 import { useState, useEffect } from "react";
+import { request, gql } from "graphql-request";
 
 export const Home = () => {
   const [productData, setProductData] = useState<ProductCardProps>();
 
   useEffect(() => {
     const getProductData = async () => {
-      const request = await fetch(
-        "https://mock.shop/api?query={product(id:%20%22gid://shopify/Product/7982905098262%22){id%20title%20description%20featuredImage%20{id%20url}}}"
-      );
-      const response = await request.json();
-      setProductData(response.data.product);
+      const response = (await request(
+        "https://mock.shop/api",
+        ProductQuery
+      )) as any;
+      setProductData(response?.product as ProductCardProps);
+      console.log(response);
     };
 
     getProductData();
