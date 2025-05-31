@@ -1,4 +1,3 @@
-import React from "react";
 import {
   LeftStyledHeroBanner,
   CenterStyledHeroBanner,
@@ -6,13 +5,22 @@ import {
 import { Button } from "../button/Button";
 import { Link } from "react-router";
 
-export const HeroBannerVariant = {
+interface HeroBannerProps {
+  variant: "left" | "center";
+  img: string;
+  alt?: string;
+  h2: string;
+  p: string;
+  desc?: string;
+}
+
+export const HeroBannerVariants = {
   left: LeftStyledHeroBanner,
   center: CenterStyledHeroBanner,
 };
 
-export const HeroBanner = ({ variant, img, alt, h2, p }) => {
-  const Tag = variant;
+export const HeroBanner = ({ variant, img, alt, h2, p }: HeroBannerProps) => {
+  const Tag = HeroBannerVariants[variant];
   return (
     <div className="container">
       <Tag>

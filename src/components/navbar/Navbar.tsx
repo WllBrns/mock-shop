@@ -1,4 +1,4 @@
-import { StyledNavbar } from "./Navbar.styled.js";
+import { StyledNavbar } from "./Navbar.styled";
 
 import { NavLink } from "react-router";
 
