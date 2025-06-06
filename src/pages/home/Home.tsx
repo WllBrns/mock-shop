@@ -11,10 +11,10 @@ import {
 import { ProductQuery } from "../../queries/productQuery";
 
 import { useState, useEffect } from "react";
-import { request, gql } from "graphql-request";
+import { request } from "graphql-request";
 
 export const Home = () => {
-  const [productData, setProductData] = useState<ProductCardProps>();
+  const [productDataArray, setProductData] = useState<ProductCardProps[]>([]);
 
   useEffect(() => {
     const getProductData = async () => {
@@ -22,7 +22,10 @@ export const Home = () => {
         "https://mock.shop/api",
         ProductQuery
       )) as any;
-      setProductData(response?.product as ProductCardProps);
+
+      response.products.edges.map((product: any) => {
+        setProductData((prev) => [...prev, product.node]);
+      });
       console.log(response);
     };
 
@@ -46,8 +49,8 @@ export const Home = () => {
       <div className="new-arrivals container">
         <p>New Arrivals</p>
         <h2>Spring '23</h2>
-        <ProductCard {...productData} />
-        {/* <ProductGrid products={[[], [], [], []]} /> */}
+        {/* <ProductCard {...productDataArray[0]} /> */}
+        <ProductGrid products={productDataArray} />
       </div>
       <HeroBanner
         variant={"center"}
