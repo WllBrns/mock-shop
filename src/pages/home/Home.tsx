@@ -4,6 +4,7 @@ import {
 } from "../../components/heroBanner/HeroBanner";
 import { ProductGrid } from "../../components/productGrid/ProductGrid";
 import { StyledHome } from "./Home.styled";
+import { Edge } from "../../components/productGrid/ProductGrid";
 import {
   ProductCard,
   ProductCardProps,
@@ -14,7 +15,7 @@ import { useState, useEffect } from "react";
 import { request } from "graphql-request";
 
 export const Home = () => {
-  const [productDataArray, setProductData] = useState<ProductCardProps[]>([]);
+  const [productDataArray, setProductData] = useState<Edge[]>([]);
 
   useEffect(() => {
     const getProductData = async () => {
@@ -23,14 +24,18 @@ export const Home = () => {
         ProductQuery
       )) as any;
 
-      response.products.edges.map((product: any) => {
-        setProductData((prev) => [...prev, product.node]);
-      });
-      console.log(response);
+      // response.products.edges.map((product: any) => {
+      //   setProductData((prev) => [...prev, product.node]);
+      // });
+      setProductData(response.products?.edges);
     };
 
     getProductData();
   }, []);
+
+  useEffect(() => {
+    console.log(productDataArray);
+  }, [productDataArray]);
 
   return (
     <StyledHome style={{ overflow: "hidden" }}>
@@ -50,7 +55,7 @@ export const Home = () => {
         <p>New Arrivals</p>
         <h2>Spring '23</h2>
         {/* <ProductCard {...productDataArray[0]} /> */}
-        <ProductGrid products={productDataArray} />
+        <ProductGrid edges={productDataArray} />
       </div>
       <HeroBanner
         variant={"center"}

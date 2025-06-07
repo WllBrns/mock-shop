@@ -7,14 +7,16 @@ export interface ProductCardProps {
     url?: string;
   };
   variants?: {
-    edges?: {
-      node?: {
-        price?: {
-          amount?: number;
-          currencyCode?: string;
+    edges?: [
+      {
+        node?: {
+          price?: {
+            amount?: number;
+            currencyCode?: string;
+          };
         };
-      };
-    };
+      }
+    ];
   };
 }
 
@@ -27,12 +29,10 @@ export const ProductCard = ({
   return (
     <StyledProductCard key={id}>
       <img src={featuredImage?.url} alt="" />
+      <h3>{title}</h3>
       <div className="text">
-        <h3>{title}</h3>
-        <p>
-          {variants?.edges?.node?.price?.amount}
-          {/* {variants?.edges?.node?.price?.currencyCode} */}
-        </p>
+        <p>${variants?.edges?.[0]?.node?.price?.amount}</p>
+        <p>{variants?.edges?.[0]?.node?.price?.currencyCode}</p>
       </div>
     </StyledProductCard>
   );
