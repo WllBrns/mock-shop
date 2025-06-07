@@ -9,27 +9,42 @@ import {
   ProductCard,
   ProductCardProps,
 } from "../../components/productCard/ProductCard";
+import { ButtonQuery } from "../../queries/button/buttonQuery";
 import { ProductQuery } from "../../queries/productQuery";
 
 import { useState, useEffect } from "react";
 import { request } from "graphql-request";
+import { Button } from "../../components/button/Button";
+import { Button as ButtonType } from "../../queries/button/button.type";
 
 export const Home = () => {
   const [productDataArray, setProductData] = useState<Edge[]>([]);
+  const [buttonData, setButtonData] = useState<ButtonType>();
 
   useEffect(() => {
+    const getButtonData = async () => {
+      const response = (await request(
+        "https://graphql.contentful.com/content/v1/spaces/aseih2nps270/environments/master",
+        ButtonQuery,
+        undefined,
+        {
+          Authorization: "Bearer jbMmrBBy0G1ljlGpvhq0rRLRYiSQwRU2G55Kf4NZ2BY",
+        }
+      )) as any;
+      console.log(response.button);
+      setButtonData(response.button);
+    };
+
     const getProductData = async () => {
       const response = (await request(
         "https://mock.shop/api",
         ProductQuery
       )) as any;
 
-      // response.products.edges.map((product: any) => {
-      //   setProductData((prev) => [...prev, product.node]);
-      // });
       setProductData(response.products?.edges);
     };
 
+    getButtonData();
     getProductData();
   }, []);
 
@@ -39,6 +54,7 @@ export const Home = () => {
 
   return (
     <StyledHome style={{ overflow: "hidden" }}>
+      <Button fontSize={buttonData?.fontSize}>{buttonData?.buttonText}</Button>
       <HeroBanner
         variant={"left"}
         img={

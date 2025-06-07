@@ -29,12 +29,9 @@ export const HeroBanner = ({ variant, img, alt, h2, p }: HeroBannerProps) => {
           <h2>{h2}</h2>
           <p>{p}</p>
 
-          <Button
-            className="link"
-            href={"/collections"}
-            icon="Shop Now"
-            as={Link}
-          ></Button>
+          <Button className="link" href={"/collections"} as={Link}>
+            Shop Now
+          </Button>
         </div>
       </Tag>
     </div>

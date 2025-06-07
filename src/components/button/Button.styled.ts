@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<{ $fontSize?: string }>`
   background-color: transparent;
   border: none;
   color: inherit;
@@ -8,7 +8,10 @@ export const StyledButton = styled.button`
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: ${({ $fontSize }) => {
+    if ($fontSize) return $fontSize + "px";
+    else return "16px";
+  }};
   margin: 0rem;
   cursor: pointer;
 `;
