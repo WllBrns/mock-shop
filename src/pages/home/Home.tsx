@@ -16,10 +16,15 @@ import { useState, useEffect } from "react";
 import { request } from "graphql-request";
 import { Button } from "../../components/button/Button";
 import { Button as ButtonType } from "../../queries/button/button.type";
+import { NewArrivals } from "../../queries/newArrivals/newArrivals.type";
+import { NewArrivalsQuery } from "../../queries/newArrivals/newArrivalsQuery";
 
 export const Home = () => {
   const [productDataArray, setProductData] = useState<Edge[]>([]);
+
   const [buttonData, setButtonData] = useState<ButtonType>();
+
+  const [newArrivalsData, setArrivalsData] = useState<NewArrivals>();
 
   useEffect(() => {
     const getButtonData = async () => {
@@ -31,8 +36,21 @@ export const Home = () => {
           Authorization: "Bearer jbMmrBBy0G1ljlGpvhq0rRLRYiSQwRU2G55Kf4NZ2BY",
         }
       )) as any;
-      console.log(response.button);
+      // console.log(response.button);
       setButtonData(response.button);
+    };
+
+    const getNewArrivalsData = async () => {
+      const response = (await request(
+        "https://graphql.contentful.com/content/v1/spaces/aseih2nps270/environments/master",
+        NewArrivalsQuery,
+        undefined,
+        {
+          Authorization: "Bearer jbMmrBBy0G1ljlGpvhq0rRLRYiSQwRU2G55Kf4NZ2BY",
+        }
+      )) as any;
+      console.log(response);
+      setArrivalsData(response);
     };
 
     const getProductData = async () => {
@@ -45,6 +63,7 @@ export const Home = () => {
     };
 
     getButtonData();
+    getNewArrivalsData();
     getProductData();
   }, []);
 
@@ -55,6 +74,7 @@ export const Home = () => {
   return (
     <StyledHome style={{ overflow: "hidden" }}>
       <Button fontSize={buttonData?.fontSize}>{buttonData?.buttonText}</Button>
+
       <HeroBanner
         variant={"left"}
         img={
@@ -68,8 +88,10 @@ export const Home = () => {
       />
 
       <div className="new-arrivals container">
-        <p>New Arrivals</p>
-        <h2>Spring '23</h2>
+        <p>{newArrivalsData?.subHeading}</p>
+        <h2>{newArrivalsData?.heading}</h2>
+        {/* <p>New Arrivals</p>
+        <h2>Spring '23</h2> */}
         {/* <ProductCard {...productDataArray[0]} /> */}
         <ProductGrid edges={productDataArray} />
       </div>
