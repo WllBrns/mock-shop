@@ -11,7 +11,7 @@ export const ProductPage = () => {
   return (
     <div className="container">
       <h1>{collectionName}</h1>
-      <ProductGrid products={[null]} />
+      <ProductGrid edges={null} />
     </div>
   );
 };

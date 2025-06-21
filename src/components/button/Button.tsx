@@ -2,16 +2,30 @@ import { StyledButton } from "./Button.styled";
 
 interface ButtonProps {
   onClick?: () => void;
-  icon?: React.ReactNode;
+  children?: React.ReactNode;
   as?: React.ElementType;
   href?: string;
   className?: string;
+  fontSize?: string;
 }
 
-export const Button = ({ className, onClick, icon, as, href }: ButtonProps) => {
+export const Button = ({
+  className,
+  onClick,
+  children,
+  as,
+  href,
+  fontSize,
+}: ButtonProps) => {
   return (
-    <StyledButton className={className} as={as} onClick={onClick} to={href}>
-      <div className="insideBorder">{icon}</div>
+    <StyledButton
+      $fontSize={fontSize}
+      className={className}
+      as={as}
+      onClick={onClick}
+      to={href}
+    >
+      <div className="insideBorder">{children}</div>
     </StyledButton>
   );
 };

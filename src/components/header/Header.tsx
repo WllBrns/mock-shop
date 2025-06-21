@@ -21,9 +21,15 @@ export const Header = () => {
         ></Link>
 
         <div className="icons">
-          <Button icon={<GoSearch />} />
-          <Button icon={<IoPersonOutline />} />
-          <Button icon={<FiShoppingBag />} />
+          <Button>
+            <GoSearch />
+          </Button>
+          <Button>
+            <IoPersonOutline />
+          </Button>
+          <Button>
+            <FiShoppingBag />
+          </Button>
         </div>
       </StyledHeader>
     </div>

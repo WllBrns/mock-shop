@@ -2,11 +2,17 @@ import { StyledProductGrid } from "./ProductGrid.styled";
 import { ProductCard, ProductCardProps } from "../productCard/ProductCard";
 
 interface ProductGridProps {
-  products: Array<ProductCardProps | null>;
+  edges: Edge[] | null;
 }
 
-export const ProductGrid = ({ products }: ProductGridProps) => {
-  const productCards = products.map((product) => <ProductCard {...product} />);
+export interface Edge {
+  node: ProductCardProps | null;
+}
+
+export const ProductGrid = ({ edges }: ProductGridProps) => {
+  const productCards = edges?.map((edge) => {
+    return <ProductCard key={edge?.node?.id} {...edge.node} />;
+  });
 
   return <StyledProductGrid>{productCards}</StyledProductGrid>;
 };
