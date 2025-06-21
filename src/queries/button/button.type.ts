@@ -1,4 +1,4 @@
-export interface Button {
+export interface ButtonType {
   buttonText: string;
   fontSize: string;
 }

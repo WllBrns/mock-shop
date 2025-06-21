@@ -15,16 +15,19 @@ import { ProductQuery } from "../../queries/productQuery";
 import { useState, useEffect } from "react";
 import { request } from "graphql-request";
 import { Button } from "../../components/button/Button";
-import { Button as ButtonType } from "../../queries/button/button.type";
-import { NewArrivals } from "../../queries/newArrivals/newArrivals.type";
-import { NewArrivalsQuery } from "../../queries/newArrivals/newArrivalsQuery";
+import { ButtonType } from "../../queries/button/button.type";
+import { HomePageQuery } from "../../queries/homePage/homePageQuery";
+import { HomePageType } from "../../queries/homePage/homePage.type";
+import { HeroBannerType } from "../../queries/heroBanner/heroBanner.type";
+import { Section } from "../../components/section/Section";
+import { SectionType } from "../../queries/section/section.type";
 
 export const Home = () => {
   const [productDataArray, setProductData] = useState<Edge[]>([]);
 
   const [buttonData, setButtonData] = useState<ButtonType>();
 
-  const [newArrivalsData, setArrivalsData] = useState<NewArrivals>();
+  const [homePageData, setHomePageData] = useState<HomePageType>();
 
   useEffect(() => {
     const getButtonData = async () => {
@@ -40,17 +43,19 @@ export const Home = () => {
       setButtonData(response.button);
     };
 
-    const getNewArrivalsData = async () => {
+    const getHomePageData = async () => {
       const response = (await request(
         "https://graphql.contentful.com/content/v1/spaces/aseih2nps270/environments/master",
-        NewArrivalsQuery,
+        HomePageQuery,
         undefined,
         {
           Authorization: "Bearer jbMmrBBy0G1ljlGpvhq0rRLRYiSQwRU2G55Kf4NZ2BY",
         }
       )) as any;
+      console.log("homepage response");
       console.log(response);
-      setArrivalsData(response);
+
+      setHomePageData(response);
     };
 
     const getProductData = async () => {
@@ -63,47 +68,26 @@ export const Home = () => {
     };
 
     getButtonData();
-    getNewArrivalsData();
+    getHomePageData();
     getProductData();
   }, []);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     console.log(productDataArray);
-  }, [productDataArray]);
+  }, [productDataArray]); */
 
   return (
     <StyledHome style={{ overflow: "hidden" }}>
-      <Button fontSize={buttonData?.fontSize}>{buttonData?.buttonText}</Button>
+      {/* <Button fontSize={buttonData?.fontSize}>{buttonData?.buttonText}</Button> */}
 
-      <HeroBanner
-        variant={"left"}
-        img={
-          "https://demostore.mock.shop/cdn/shop/files/DALL_E_2023-02-03_11.19.22_-_basketball_gym_5_1.png?v=1675445658&width=1500"
-        }
-        desc={"Hero Banner"}
-        h2={"The Peak Collection"}
-        p={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris varius faucibus consequat. Nunc eleifend eget purus in viverra. Mauris congue ullamcorper nisi ac luctus. Vivamus eget posuere justo. Duis leo lorem, ultrices eu placerat sit amet, ultricies ut enim. Sed nec fringilla neque, non ornare odio. Integer urna eros, fermentum ac nibh ut, pretium tincidunt ligula."
-        }
-      />
-
-      <div className="new-arrivals container">
-        <p>{newArrivalsData?.subHeading}</p>
-        <h2>{newArrivalsData?.heading}</h2>
-        {/* <p>New Arrivals</p>
-        <h2>Spring '23</h2> */}
-        {/* <ProductCard {...productDataArray[0]} /> */}
-        <ProductGrid edges={productDataArray} />
-      </div>
-      <HeroBanner
-        variant={"center"}
-        img={
-          "https://demostore.mock.shop/cdn/shop/files/second.jpg?v=1675442050&width=1500"
-        }
-        desc={"Hero Banner"}
-        h2={"Midweight Classics"}
-        p={"Clothes that work as hard as you do."}
-      />
+      {homePageData?.homePage?.sectionsCollection.items?.map((section) => {
+        console.log(section.__typename);
+        if (section.__typename === "HeroBanner")
+          return <HeroBanner {...(section as HeroBannerType)} />;
+        if (section.__typename === "Section")
+          return <Section {...(section as SectionType)} />;
+        return <div></div>;
+      })}
     </StyledHome>
   );
 };
